@@ -1,0 +1,59 @@
+
+<div class="mainArea">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="box column is-one-third">
+        <h1 class="title has-text-centered">Passworder</h1>
+  
+        <div class="field">
+          <label>SIFRE UZUNLUGU</label>
+          <input class="input" (change)="modifyLength($event.target.value)" />
+        </div>
+  
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input (change)="modifyLetters()" type="checkbox" />
+              HARF 
+            </label>
+          </div>
+        </div>
+  
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input (change)="modifyNumbers()" type="checkbox" />
+              SAYI
+            </label>
+          </div>
+        </div>
+  
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input (change)="modifySymbols()" type="checkbox" />
+              SEMBOL
+            </label>
+          </div>
+        </div>
+  
+        <button
+          [disabled]="
+            !(length && (includeLetters || includeSymbols || includeNumbers))
+          "
+          [disabled]="!length"
+          (click)="buttonClick()"
+          class="button is-link is-fullwidth"
+        >
+         OLUSTUR
+        </button>
+  
+        <div class="box" *ngIf="password">
+          <label>Sifreniz</label>
+          <input class="input" [value]="password" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
